@@ -1,0 +1,14 @@
+<html>
+  <head>
+    {% block title%}
+    {% endblock %}
+  </head>
+  <body>
+    <p>This is base.html parenting the following template:</p>
+    <hr>
+    {% block content %}
+    {% endblock %}
+    <hr>
+    <p>Back into base.html.</p>
+  </body>
+</html>
