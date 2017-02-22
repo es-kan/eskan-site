@@ -1,0 +1,17 @@
+#don't store macosx random files in git:
+.DS_Store
+
+#don't store compiled python
+*.pyc
+
+#ignore editor temp-files
+*~
+
+#ignore the sqlite db
+*.db
+*.sqlite
+*.sqlite3
+www/*.db
+
+#ignore the sitepackages
+site-packages/*
