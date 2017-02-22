@@ -1,20 +1,25 @@
 {% extends 'base.html' %}
 
+{% load staticfiles %}
+
 {% block title %}
 <title>TITLE</title>
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
 {% endblock %}
 
 {% block content %}
-<div>
+<div class="main-container">
+<div class="title-header">
   <h1>This is the main view header.</h1>
 </div>
-<div>
+<div class="posts">
   {% for post in posts %}
-    <div>
-      <p>Published: {{ post.date_time_published }}</p>
+    <div class="post">
+      <p class="published-date">Published: {{ post.date_time_published }}</p>
       <h2>{{ post.title }}</h2>
       <p>{{ post.text|linebreaksbr }}</p>
     </div>
   {% endfor %}
+</div>
 </div>
 {% endblock %}
