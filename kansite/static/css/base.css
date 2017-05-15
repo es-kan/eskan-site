@@ -3,9 +3,14 @@
 }
 
 .base-container {
-  background-color: white;
+  overflow: hidden;
 }
 
 body {
   background-color: #f1fce5
+}
+
+html, body {
+    margin:0;
+    padding:0;
 }

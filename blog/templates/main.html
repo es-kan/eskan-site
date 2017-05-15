@@ -3,24 +3,30 @@
 {% load staticfiles %}
 
 {% block title %}
-<title>TITLE</title>
-<link rel="stylesheet" href="{% static 'css/blog.css' %}">
-{% endblock %}
+  <title>TITLE</title>
+{% endblock title %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock extra_head %}
+
 
 {% block content %}
 <div class="main-container">
-<div class="title-header">
-  <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-  <h1>This is the blog/main.html header.</h1>
-</div>
-<div class="posts">
-  {% for post in posts %}
+  {% block blog_content %}
+  <div class="title-header">
+    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    <h1>This is the blog/main.html header.</h1>
+  </div>
+  <div class="posts">
+    {% for post in posts %}
     <div class="post">
       <p class="published-date">Published: {{ post.date_time_published }}</p>
       <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
       <p>{{ post.text|linebreaksbr }}</p>
     </div>
-  {% endfor %}
+    {% endfor %}
+  </div>
+  {% endblock blog_content %}
 </div>
-</div>
-{% endblock %}
+{% endblock content%}

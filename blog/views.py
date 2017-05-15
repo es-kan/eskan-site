@@ -46,3 +46,10 @@ class PostEditView(UpdateView):
     def get_object(self):
         post = Post.objects.get(pk=self.kwargs['pk'])
         return post
+
+    def get_success_url(self):
+        return reverse('post_detail', kwargs={'pk': self.object.pk})
+
+
+class TestView(TemplateView):
+    template_name = 'testview.html'

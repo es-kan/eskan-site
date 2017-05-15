@@ -1,6 +1,7 @@
-.main-container, .post {
+.main-container {
     padding-left: 15px;
     background-color: #eff5ff;
+    overflow: hidden;
 }
 
 .title-header {
