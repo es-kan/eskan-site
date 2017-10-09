@@ -1,3 +1,4 @@
+from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import TemplateView, DetailView
 from django.views.generic.edit import CreateView, UpdateView
 from django.core.urlresolvers import reverse
@@ -24,10 +25,11 @@ class PostDetailView(DetailView):
         return context
 
 
-class NewPostFormView(CreateView):
+class NewPostFormView(SuccessMessageMixin, CreateView):
     template_name = 'post_edit.html'
     form_class = PostForm
     model = Post
+    success_message = "Message %(message)s created successfully!"
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -38,10 +40,11 @@ class NewPostFormView(CreateView):
         return reverse('post_detail', kwargs={'pk': self.object.pk})
 
 
-class PostEditView(UpdateView):
+class PostEditView(SuccessMessageMixin, UpdateView):
     model = Post
     template_name = 'post_edit.html'
     fields = ['title', 'text']
+    success_message = "Message %(message)s edited successfully!"
 
     def get_object(self):
         post = Post.objects.get(pk=self.kwargs['pk'])
@@ -49,6 +52,11 @@ class PostEditView(UpdateView):
 
     def get_success_url(self):
         return reverse('post_detail', kwargs={'pk': self.object.pk})
+
+    def get_success_message(self, cleaned_data):
+        return self.success_message % dict(
+            cleaned_data, message=self.object.title
+        )
 
 
 class TestView(TemplateView):
