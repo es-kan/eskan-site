@@ -1,0 +1,18 @@
+.main-container {
+    padding-left: 15px;
+    background-color: #eff5ff;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.title-header {
+  color: #FCA205;
+}
+
+.date {
+    color: #828282;
+}
+
+.post {
+    padding-bottom: 70px;
+}

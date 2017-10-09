@@ -15,3 +15,6 @@ www/*.db
 
 #ignore the sitepackages
 site-packages/*
+
+#ignore IDEA config files
+.idea/

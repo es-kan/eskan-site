@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block title %}
+<title>New post</title>
+{% endblock title%}
+
+{% block blog_content %}
+<h1>New post</h1>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Save"/>
+</form>
+<a href="{{ request.META.HTTP_REFERER }}"><span class="glyphicon glyphicon-chevron-left"/></a>
+{% endblock %}

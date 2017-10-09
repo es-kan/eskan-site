@@ -1,0 +1,20 @@
+.footer, .header {
+  text-align: center;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}
+
+.base-container {
+  overflow: hidden;
+}
+
+body {
+  background-color: #f1fce5;
+}
+
+html, body {
+    margin:0;
+    padding:0;
+}

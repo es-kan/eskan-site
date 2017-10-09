@@ -1,14 +1,27 @@
+{% load staticfiles %}
 <html>
   <head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% block title%}
+    {% endblock %}
+    {% block extra_head %}
     {% endblock %}
   </head>
   <body>
-    <p>This is base.html parenting the following template:</p>
-    <hr>
+    <p class='header'>Welkom, dit is een naamloos project.</p>
+    <div class="messages">
+      <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="base-container">
     {% block content %}
     {% endblock %}
-    <hr>
-    <p>Back into base.html.</p>
+    </div>
+    <p class='footer'>Created by erik@theconditionalpixel.nl</p>
   </body>
 </html>
