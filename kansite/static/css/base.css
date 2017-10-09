@@ -1,5 +1,9 @@
 .footer, .header {
   text-align: center;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
 }
 
 .base-container {
@@ -7,7 +11,7 @@
 }
 
 body {
-  background-color: #f1fce5
+  background-color: #f1fce5;
 }
 
 html, body {

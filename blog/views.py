@@ -39,6 +39,11 @@ class NewPostFormView(SuccessMessageMixin, CreateView):
     def get_success_url(self):
         return reverse('post_detail', kwargs={'pk': self.object.pk})
 
+    def get_success_message(self, cleaned_data):
+        return self.success_message % dict(
+            cleaned_data, message=self.object.title
+        )
+
 
 class PostEditView(SuccessMessageMixin, UpdateView):
     model = Post
