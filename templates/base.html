@@ -10,7 +10,14 @@
     {% endblock %}
   </head>
   <body>
-    <p class='header'>This is base.html parenting the following template:</p>
+    <p class='header'>Welkom, dit is een naamloos project.</p>
+    <div class="messages">
+      <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    </div>
     <div class="base-container">
     {% block content %}
     {% endblock %}
